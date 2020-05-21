@@ -9,7 +9,7 @@ BaselineOfSilo >> baseline: spec [
 	<baseline>
 	spec
 		for: #common
-		do: [ spec package: 'CloudConversations-Core'.
+		do: [ spec package: 'Silo-Core'.
 			spec
 				baseline: 'NeoJSON'
 				with: [ spec repository: 'github://svenvc/NeoJSON/repository' ].
