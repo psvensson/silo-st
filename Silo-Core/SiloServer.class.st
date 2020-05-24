@@ -55,7 +55,7 @@ SiloServer >> handleDelete: req [
 			Transcript
 				show: 'delete handler for ' , path , ' returning ' , res asString;
 				cr.
-			rv := TeaResponse code: 200.
+			rv := ZnResponse ok: res.
 			sem signal ] ] fork.
 	sem wait.
 	rv

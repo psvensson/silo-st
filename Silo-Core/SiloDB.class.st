@@ -21,7 +21,8 @@ SiloDB >> db: anObject [
 SiloDB >> initialize [
 	| env cert firebase |
 	env := OSPlatform environment.
-	cert := env at: #certificate.	
+	cert := env at: #certificate ifAbsent: [
+		Transcript show:'No service account found in certificate environment veriable! ';cr.].	
 	firebase := Firebase new: cert.
 	db := FirebaseRtdb new: firebase.
 	Transcript show:'SiloDB created firebaseRtdb ';cr.
