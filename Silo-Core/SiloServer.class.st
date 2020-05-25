@@ -151,8 +151,9 @@ SiloServer >> initialize [
 	Transcript
 		show: '--- Silo starting';
 		cr.
-	(ZnServer startDefaultOn: 8080)
-		"logToTranscript;"
+	(ZnServer startDefaultOn: 8080) 
+		bindingAddress: #[0 0 0 0];
+		logToTranscript;
 		onRequestRespond: [ :request | 
 			(mapper detect: [ :each | each key value: request ] ifNone: [ nil ])
 				ifNil: [ ZnResponse badRequest: request ]
